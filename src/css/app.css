@@ -2,6 +2,14 @@
 @tailwind components;
 @tailwind utilities;
 
+
 .custom-gradient {
     background: linear-gradient(90deg, #353535 46%, #0C0C0C 100%);
-  }
+}
+
+.inter-home-seach-input {
+  font-family: "Inter", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+}

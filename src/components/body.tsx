@@ -1,4 +1,4 @@
-import { BodyProps } from "../@types/types";
+import { BodyProps } from "../@types/body.types";
 
 export default function Body({ children }: BodyProps){
     return (

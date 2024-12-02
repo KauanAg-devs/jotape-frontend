@@ -3,8 +3,8 @@ import Body from '../components/body'
 import FormContainer from '../components/form/form-container'
 import InputsForm from '../components/form/inputs-form'
 import SignForm from '../components/form/sign-form'
-import { UserData } from '../@types/types'
 import SignUpRequest from '../api/sign-up-request'
+import { UserData } from '../@types/user-data.types'
 
 function SignUp() {
   const [userData, setUserData] = useState<UserData | null>(null)
