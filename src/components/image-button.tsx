@@ -1,21 +1,23 @@
-import React from "react";
+import React, { Dispatch, SetStateAction } from "react";
 
 type ImageButtonProps = {
     title: string
     width: string;
     height: string;
-    image:  React.ReactNode
+    image:  React.ReactNode,
+    setShowSomething?: Dispatch<SetStateAction<boolean>>
   };
   
   export default function ImageButton({
     width,
     height,
     image,
-    title
+    title,
+    setShowSomething
   }: ImageButtonProps) {
     return (
       <div className="relative group">
-        <button className="p-2 bg-gray-100 hover:bg-gray-200 rounded-full transition-colors duration-300 ease-in-out">
+        <button onClick={()=> setShowSomething(prev => !prev)} className="p-2 bg-gray-100 hover:bg-gray-200 rounded-full transition-colors duration-300 ease-in-out">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 24 24"

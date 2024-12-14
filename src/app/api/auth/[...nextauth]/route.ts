@@ -1,8 +1,6 @@
 import NextAuth from "next-auth";
 import GoogleProvider from "next-auth/providers/google";
 
-console.log('teste');
-
 const handler = NextAuth({
   providers: [
     GoogleProvider({
@@ -12,26 +10,17 @@ const handler = NextAuth({
   ],
   callbacks: {
     async session({ session, token }) {
-      console.log("Callback: session chamado");
-      console.log("Session:", session);
-      console.log("Token:", token);
       session.user.email = token.email;
       session.user.name = token.name;
       session.user.image = token.picture;
       return session;
     },
     async jwt({ token, account, profile }) {
-      console.log("Callback: jwt chamado");
-      console.log("Token inicial:", token);
-      console.log("Account:", account);
-      console.log("Profile:", profile);
-  
       if (account && profile) {
         token.email = profile.email;
         token.name = profile.name;
         token.image = profile.image;
       }
-      console.log("Token final:", token);
       return token;
     },
     redirect({url, baseUrl}){
@@ -40,12 +29,12 @@ const handler = NextAuth({
   },
 
   session: {
-    strategy: 'jwt', // Usa JWT para gerenciar as sessões
+    strategy: 'jwt', 
   },
   pages: {
-    signIn: '/signup', // Página de login personalizada
+    signIn: '/signup',
   },
-  debug: true, // Ativa logs detalhados
+  debug: true,
 });
 
 export { handler as GET, handler as POST };
